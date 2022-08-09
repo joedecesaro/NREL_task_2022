@@ -2,7 +2,6 @@
 title: "NREL Technical Task 2022"
 format: 
   html:
-    self-contained: true
     toc: true
 editor: visual
 ---
