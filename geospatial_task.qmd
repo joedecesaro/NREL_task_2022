@@ -1,6 +1,8 @@
 ---
 title: "NREL Technical Task 2022"
-format: html
+format: 
+  html:
+    toc: true
 editor: visual
 ---
 
@@ -24,7 +26,7 @@ import h5py
 
 ```
 
-## Import Data and subset
+## Import Data and Subset
 
 Data was downloaded following the instructions provided in the instruction email: https://github.com/NREL/hsds-examples/blob/master/notebooks/02_WTK_Domains_introduction.ipynb
 
