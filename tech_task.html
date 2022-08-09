@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.243">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>NREL Technical Task 2022</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="tech_task_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="tech_task_files/libs/quarto-html/quarto.js"></script>
+  <script src="tech_task_files/libs/quarto-html/popper.min.js"></script>
+  <script src="tech_task_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="tech_task_files/libs/quarto-html/anchor.min.js"></script>
+  <link href="tech_task_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="tech_task_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="tech_task_files/libs/bootstrap/bootstrap.min.js"></script>
+  <link href="tech_task_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="tech_task_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="fullcontent">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  
+</div>
+
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+<div class="quarto-title"><h1 class="title display-7">NREL Technical Task 2022</h1></div></header>
+<section id="the-task" class="level1">
+<h1>The Task:</h1>
+<p>Wind resource varies highly across space and at different temporal scales, e.g., sub-hourly, diurnal, monthly, and annual. Understanding this variability is crucial for many wind energy modeling applications. Develop a prototype analysis tool that examines wind speed variability at diurnal and monthly temporal scales at an individual location of your choosing. Use NREL’s WIND Toolkit (WTK) data set (see below) to examine hourly (60-minute interval) wind speed data for the year 2012. Use only open-source tools. Develop statistical summaries and simple visualizations that will inform the user on the wind speed variability across diurnal and monthly scales. Your solution should provide location-specific summaries but should also be developed in an extensible manner such that it could be scaled in the future to run efficiently across broad geographic extents (utilizing an HPC system or the cloud). Prepare a 15-minute section of your interview presentation on your solution and demonstrate the insight it provides. Discuss how your approach could be scaled and extended to examine temporal variability across space.</p>
+<section id="set-up-for-task" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-for-task">Set Up for Task</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dateutil</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> cKDTree</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> h5pyd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> h5py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="import-data-and-subset" class="level2">
+<h2 class="anchored" data-anchor-id="import-data-and-subset">Import Data and subset</h2>
+<p>Data was downloaded following the instructions provided in the instruction email: https://github.com/NREL/hsds-examples/blob/master/notebooks/02_WTK_Domains_introduction.ipynb</p>
+<p>For this to work you must first install h5pyd:</p>
+<p><code>pip install --user h5pyd</code></p>
+<p>Next you’ll need to configure HSDS:</p>
+<p><code>hsconfigure</code></p>
+<p>and enter at the prompt:</p>
+<p><code>hs_endpoint = https://developer.nrel.gov/api/hsds</code> <code>hs_username = None</code> <code>hs_password = None</code> <code>hs_api_key = 3K3JQbjZmWctY0xmIfSYvYgtIcM3CN0cb1Y2w9bf</code></p>
+<p>The example API key here is for demonstration and is rate-limited per IP. To get your own API key, visit []https://developer.nrel.gov/signup/</p>
+<p>Let’s import the data for the year 2012 and for the contiguous US.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="st">'2012'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>country <span class="op">=</span> <span class="st">"conus"</span> <span class="co"># </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>wind_file_path <span class="op">=</span> <span class="st">"/nrel/wtk/conus/wtk_"</span> <span class="op">+</span> country <span class="op">+</span> <span class="st">"_"</span> <span class="op">+</span> year <span class="op">+</span> <span class="st">".h5"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>raw_h5 <span class="op">=</span> h5pyd.File(wind_file_path, <span class="st">'r'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(raw_h5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>['coordinates', 'inversemoninobukhovlength_2m', 'meta', 'precipitationrate_0m', 'pressure_0m', 'pressure_100m', 'pressure_200m', 'relativehumidity_2m', 'temperature_100m', 'temperature_10m', 'temperature_120m', 'temperature_140m', 'temperature_160m', 'temperature_200m', 'temperature_2m', 'temperature_40m', 'temperature_60m', 'temperature_80m', 'time_index', 'winddirection_100m', 'winddirection_10m', 'winddirection_120m', 'winddirection_140m', 'winddirection_160m', 'winddirection_200m', 'winddirection_40m', 'winddirection_60m', 'winddirection_80m', 'windspeed_100m', 'windspeed_10m', 'windspeed_120m', 'windspeed_140m', 'windspeed_160m', 'windspeed_200m', 'windspeed_40m', 'windspeed_60m', 'windspeed_80m']</code></pre>
+</div>
+</div>
+<p>The below chunk takes a look at the data dimensions. Understanding the dimensions is critical to working with .h5 files as the index numbers are what ties the separate data structures together.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raw_h5[<span class="st">'coordinates'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;HDF5 dataset "coordinates": shape (2488136, 2), type "&lt;f4"&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>raw_h5[<span class="st">'meta'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;HDF5 dataset "meta": shape (2488136,), type "|V69"&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>raw_h5[<span class="st">'windspeed_100m'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;HDF5 dataset "windspeed_100m": shape (8784, 2488136), type "&lt;u2"&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>raw_h5[<span class="st">'time_index'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;HDF5 dataset "time_index": shape (8784,), type "|S20"&gt;</code></pre>
+</div>
+</div>
+<p>So with the dimensions above we can interpret that there are almost 2.5 million coordinate points and 8,784 time points. We can then extract the wind speed at a specific time and place during the year.</p>
+<section id="time-subset" class="level3">
+<h3 class="anchored" data-anchor-id="time-subset">Time Subset</h3>
+<p>Next we will pull out the time index data and make it more friendly for python to work with.The time data is hourly for every day of the year.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>time_index <span class="op">=</span> pd.to_datetime(raw_h5[<span class="st">'time_index'</span>][...].astype(<span class="bu">str</span>)) <span class="co">#save timestamp index as object in date time format</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>time_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>DatetimeIndex(['2012-01-01 00:00:00', '2012-01-01 01:00:00',
+               '2012-01-01 02:00:00', '2012-01-01 03:00:00',
+               '2012-01-01 04:00:00', '2012-01-01 05:00:00',
+               '2012-01-01 06:00:00', '2012-01-01 07:00:00',
+               '2012-01-01 08:00:00', '2012-01-01 09:00:00',
+               ...
+               '2012-12-31 14:00:00', '2012-12-31 15:00:00',
+               '2012-12-31 16:00:00', '2012-12-31 17:00:00',
+               '2012-12-31 18:00:00', '2012-12-31 19:00:00',
+               '2012-12-31 20:00:00', '2012-12-31 21:00:00',
+               '2012-12-31 22:00:00', '2012-12-31 23:00:00'],
+              dtype='datetime64[ns]', length=8784, freq=None)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>time_df <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> time_index, columns <span class="op">=</span> [<span class="st">'date_time'</span>]) <span class="co"># save as pandas DF to use later.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># datetimeIndex has each our of the day stored</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="meta-data-subset" class="level3">
+<h3 class="anchored" data-anchor-id="meta-data-subset">Meta Data Subset</h3>
+<p>Next the meta data is saved. This will not be used for this model but it is helpful to understand what kind of data is embedded in the file.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>meta <span class="op">=</span> pd.DataFrame(raw_h5[<span class="st">'meta'</span>][...]) <span class="co">#save meta data as object, ellipses makes it an array rather than HDF5</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>meta.head() <span class="co"># just used to look at the data more easily</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This has latitude and longitude columns that can be used to search for other information where necessary and if needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    latitude   longitude  country  ... timezone elevation  offshore
+0  37.603382 -127.617050  b'None'  ...       -9         0         1
+1  37.620419 -127.626007  b'None'  ...       -9         0         1
+2  37.637451 -127.634979  b'None'  ...       -9         0         1
+3  37.654484 -127.643951  b'None'  ...       -9         0         1
+4  37.671509 -127.652924  b'None'  ...       -9         0         1
+
+[5 rows x 8 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="coordinates-subset" class="level3">
+<h3 class="anchored" data-anchor-id="coordinates-subset">Coordinates Subset</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> raw_h5[<span class="st">'coordinates'</span>][...] <span class="co"># save coordinates data as array, ellipses makes it an array rather than HDF5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>coords_df <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> coords)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>coords_df.columns <span class="op">=</span> [<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="a-function-to-find-the-index-for-a-point-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="a-function-to-find-the-index-for-a-point-of-interest">A Function to Find the Index for a Point of Interest</h2>
+<p>The function <code>nearest_site</code>, allows you to find the index numbers within a <code>coord_array</code> for a given latitude (<code>lat_coord</code>) and longitude (<code>lon_coord</code>) coordinate. The returned index numbers will allow you to find the wind speed for the point of interest in the .h5 file.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The function below l</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_site(coord_array, lat_coord, lon_coord):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> cKDTree(coord_array)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    lat_lon <span class="op">=</span> np.array([lat_coord, lon_coord])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    dist, pos <span class="op">=</span> tree.query(lat_lon)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pos<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="testing" class="level3">
+<h3 class="anchored" data-anchor-id="testing">Testing</h3>
+<p>The below is a test for the function above for the point of interest (POI). The coordinates used in this example are for Santa Barbara, California. We are making the coords object the same as above here but it is included so that it is more obvious where things are coming from in the function call.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> raw_h5[<span class="st">'coordinates'</span>][...] <span class="co"># save coordinates data as array, ellipses makes it an array rather than HDF5</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>POI <span class="op">=</span> (<span class="fl">34.420830</span>, <span class="op">-</span><span class="fl">119.698189</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>POI_indx <span class="op">=</span> nearest_site(coord_array <span class="op">=</span> coords, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                        lat_coord <span class="op">=</span> POI[<span class="dv">0</span>], </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                        lon_coord <span class="op">=</span> POI[<span class="dv">1</span>])</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>POI_indx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>209886</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="finding-the-wind-speed-for-poi_indx" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-wind-speed-for-poi_indx">Finding the Wind Speed for <code>POI_indx</code></h2>
+<p>For this example we will be using the data for <code>windspeed_100m</code> from the <code>raw_h5</code> extracted at the beginning of the demo. The list of available data is above under the call <code>list(raw_h5)</code>. Next the wind speed is extracted from the h5 for all time rows in the designated year at the specific location indicated by the index. It is unscaled by the <code>scale_factor</code> of 100 so that the resulting values represent m/s.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># def h5_extractor(raw_h5, variable,)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>windspeed_100_raw <span class="op">=</span> raw_h5[<span class="st">'windspeed_100m'</span>] <span class="co"># save the h5 separately</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>windspeed_100_raw <span class="op">=</span> windspeed_100_raw[:, POI_indx] <span class="op">/</span> windspeed_100_raw.attrs[<span class="st">'scale_factor'</span>] <span class="co"># Make wind speed array and unscale data so that it is in m/s</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>windspeed_100 <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> windspeed_100_raw) <span class="co"># make array a DF for the timeseries of interest</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="make-a-dataframe-for-wind-speed" class="level2">
+<h2 class="anchored" data-anchor-id="make-a-dataframe-for-wind-speed">Make a DataFrame for Wind Speed</h2>
+<p>Next the setup work that has been done above will be made into a more useful data frame so that information can be visualized more easily. This function assumes you have completed the steps above</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> windspeed_point_df_maker(time_df, coords_df, windspeed, POI_indx):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(dtype <span class="op">=</span> <span class="bu">float</span>) <span class="co"># making a data frame with default dtype 'float'</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'year'</span>] <span class="op">=</span> time_df[<span class="st">'date_time'</span>].dt.year <span class="co"># make a year column</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'month'</span>] <span class="op">=</span> time_df[<span class="st">'date_time'</span>].dt.month <span class="co"># make a month column</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'day'</span>] <span class="op">=</span> time_df[<span class="st">'date_time'</span>].dt.day <span class="co"># make a day column</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'hour'</span>] <span class="op">=</span> time_df[<span class="st">'date_time'</span>].dt.hour <span class="co"># make an hour column</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'latitude'</span>] <span class="op">=</span> coords_df[<span class="st">'latitude'</span>].iloc[POI_indx] <span class="co"># get all latitude coords</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'longitude'</span>] <span class="op">=</span> coords_df[<span class="st">'longitude'</span>].iloc[POI_indx] <span class="co"># get all longitude coords</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'windspeed'</span>] <span class="op">=</span> windspeed_100 <span class="co"># unscaled windspeeds</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'avg_windspeed'</span>] <span class="op">=</span> df[<span class="st">'windspeed'</span>].mean() <span class="co"># find the average windspeed for the whole dataset</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now that we have a function to give us a more usable data frame lets make one for the wind speed at 100 meters data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_100m <span class="op">=</span> windspeed_point_df_maker(time_df <span class="op">=</span> time_df,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                                   coords_df <span class="op">=</span> coords_df,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                                   windspeed <span class="op">=</span> windspeed_100,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                                   POI_indx <span class="op">=</span> POI_indx)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>df_100m.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year  month  day  hour   latitude   longitude  windspeed  avg_windspeed
+0  2012      1    1     0  34.414795 -119.702332       1.83       3.270203
+1  2012      1    1     1  34.414795 -119.702332       0.62       3.270203
+2  2012      1    1     2  34.414795 -119.702332       0.44       3.270203
+3  2012      1    1     3  34.414795 -119.702332       0.29       3.270203
+4  2012      1    1     4  34.414795 -119.702332       0.13       3.270203</code></pre>
+</div>
+</div>
+</section>
+<section id="subset-for-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="subset-for-visualizations">Subset for Visualizations</h2>
+<p>The function below, <code>time_subset</code>, will allow the user to group the data into a designated subset by the hour, day, or month. Different functions are completed based on the type of plots one may want to make with the data. This function assumes that the data has been categorized as is done in the <code>windspeed_point_df_maker</code> function.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> time_subset(period, df):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> period <span class="op">==</span> <span class="st">'hour'</span>:</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> df.groupby([<span class="st">'year'</span>,<span class="st">'month'</span>,<span class="st">'hour'</span>,<span class="st">'avg_windspeed'</span>], as_index <span class="op">=</span> <span class="va">False</span>).agg(hour_avg_windspeed <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'mean'</span>), standard_dev <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'std'</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> period <span class="op">==</span> <span class="st">'day'</span>:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> df.groupby([<span class="st">'year'</span>,<span class="st">'month'</span>,<span class="st">'day'</span>,<span class="st">'avg_windspeed'</span>], as_index <span class="op">=</span> <span class="va">False</span>).agg(daily_avg_windspeed <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'mean'</span>), standard_dev <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'std'</span>))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'year'</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">'/'</span> <span class="op">+</span>df[<span class="st">'month'</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">'/'</span> <span class="op">+</span> df[<span class="st">'day'</span>].astype(<span class="bu">str</span>))</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> period <span class="op">==</span> <span class="st">'month'</span>:</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> df.groupby([<span class="st">'month'</span>, <span class="st">'avg_windspeed'</span>], as_index <span class="op">=</span> <span class="va">False</span>).agg(month_avg_windspeed <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'mean'</span>), standard_dev <span class="op">=</span> (<span class="st">'windspeed'</span>, <span class="st">'std'</span>))</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Period must be desginated as either hour, day, or month"</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="visualizing-wind-variability" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-wind-variability">Visualizing Wind Variability</h2>
+<p>Next the data is subset to be made into visualizations. This uses the function just made <code>time_subset</code> above. First lets explore the daily summary to see average wind speed of each day.</p>
+<section id="daily-averages" class="level3">
+<h3 class="anchored" data-anchor-id="daily-averages">Daily Averages</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>day_var <span class="op">=</span> time_subset(period <span class="op">=</span> <span class="st">'day'</span>, df <span class="op">=</span> df_100m)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>day_var.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year  month  day  ...  daily_avg_windspeed  standard_dev       date
+0  2012      1    1  ...             0.940833      0.554593 2012-01-01
+1  2012      1    2  ...             2.021667      0.985065 2012-01-02
+2  2012      1    3  ...             1.599583      1.227679 2012-01-03
+3  2012      1    4  ...             1.260833      0.800923 2012-01-04
+4  2012      1    5  ...             1.242917      0.814827 2012-01-05
+
+[5 rows x 7 columns]</code></pre>
+</div>
+</div>
+<p>First a histogram is made to understand how daily wind averages are distributed across 2012.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>plt.hist(x <span class="op">=</span> day_var[<span class="st">'daily_avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"darkgreen"</span>, label <span class="op">=</span> <span class="st">"Average Daily Wind Speed"</span>, bins <span class="op">=</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(array([ 31., 109., 115.,  54.,  24.,   7.,   7.,  10.,   2.,   2.,   3.,
+         2.]), array([ 0.94083333,  1.77152778,  2.60222222,  3.43291667,  4.26361111,
+        5.09430556,  5.925     ,  6.75569444,  7.58638889,  8.41708333,
+        9.24777778, 10.07847222, 10.90916667]), &lt;BarContainer object of 12 artists&gt;)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Daily Wind Speeds in Santa Barbara at 100 Meters for 2012"</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This histogram tells us that that most days of the year have a wind speed averaging less than 5 m/s in Santa Barbara. If we look at how these variations are spread across the year are there any patterns that emerge?</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.plot(day_var[<span class="st">'date'</span>], day_var[<span class="st">'daily_avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"darkgreen"</span>, label <span class="op">=</span> <span class="st">"Average Daily Wind Speed"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.plot(day_var[<span class="st">'date'</span>], day_var[<span class="st">'avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"black"</span>, label <span class="op">=</span> <span class="st">"Average Annual Wind Speed"</span>, linestyle <span class="op">=</span> <span class="st">'dashed'</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Comparing Average Daily Wind Speeds in Santa Barbara at 100 Meters </span><span class="ch">\n</span><span class="st"> with the Annual Average for 2012"</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-24-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It looks like the days with the strongest wind throughout the year are in the winter and early months however, there is a lot of variability between the high wind days and the low wind days. It appears that day to day wind variation is low from June-October. How does this look if we simplify it to month-month?</p>
+</section>
+<section id="monthly-averages" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-averages">Monthly Averages</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>monthly_var <span class="op">=</span> time_subset(period <span class="op">=</span> <span class="st">'month'</span>, df <span class="op">=</span> df_100m)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>monthly_var.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   month  avg_windspeed  month_avg_windspeed  standard_dev
+0      1       3.270203             2.339987      1.860377
+1      2       3.270203             3.702514      3.598256
+2      3       3.270203             3.946653      2.837208
+3      4       3.270203             4.295028      3.619121
+4      5       3.270203             3.706169      2.218983</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.bar(monthly_var[<span class="st">'month'</span>], monthly_var[<span class="st">'month_avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"green"</span>, label <span class="op">=</span> <span class="st">"Average Monthly Wind Speed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;BarContainer object of 12 artists&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.xticks(monthly_var[<span class="st">'month'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x290eef610&gt;, &lt;matplotlib.axis.XTick object at 0x290eef850&gt;, &lt;matplotlib.axis.XTick object at 0x290eeb310&gt;, &lt;matplotlib.axis.XTick object at 0x290f395b0&gt;, &lt;matplotlib.axis.XTick object at 0x290f39d00&gt;, &lt;matplotlib.axis.XTick object at 0x290f40490&gt;, &lt;matplotlib.axis.XTick object at 0x290f40be0&gt;, &lt;matplotlib.axis.XTick object at 0x290f45370&gt;, &lt;matplotlib.axis.XTick object at 0x290f45ac0&gt;, &lt;matplotlib.axis.XTick object at 0x290f45760&gt;, &lt;matplotlib.axis.XTick object at 0x290f40730&gt;, &lt;matplotlib.axis.XTick object at 0x290f39640&gt;], [Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, '')])</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.plot(monthly_var[<span class="st">'month'</span>], monthly_var[<span class="st">'avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"darkred"</span>, linestyle <span class="op">=</span> <span class="st">'dashed'</span>, label <span class="op">=</span> <span class="st">"Average Annual Wind Speed"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.scatter(monthly_var['month'], monthly_var['month_avg_windspeed'] + monthly_var['standard_dev'], color = "grey", linestyle = 'dashed', label = "Monthly Standard Deviation")</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.scatter(monthly_var['month'], monthly_var['month_avg_windspeed'] - monthly_var['standard_dev'], color = "grey", linestyle = 'dashed')</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Month"</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Comparing Average Monthly Wind Speeds in Santa Barbara at 100 Meters with the Annual Average for 2012"</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-28-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This confirms our observations for the day-to-day variation of wind speed for the year. The winter and early spring months are the windier months, while July-October have lower wind on average. What about the standard deviation for each month?</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>plt.bar(monthly_var[<span class="st">'month'</span>], monthly_var[<span class="st">'month_avg_windspeed'</span>], color <span class="op">=</span> <span class="st">"green"</span>, label <span class="op">=</span> <span class="st">"Average Monthly Wind Speed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;BarContainer object of 12 artists&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.xticks(monthly_var[<span class="st">'month'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x290f398e0&gt;, &lt;matplotlib.axis.XTick object at 0x290f39e20&gt;, &lt;matplotlib.axis.XTick object at 0x290f40fd0&gt;, &lt;matplotlib.axis.XTick object at 0x290f5c820&gt;, &lt;matplotlib.axis.XTick object at 0x290f63040&gt;, &lt;matplotlib.axis.XTick object at 0x290f63700&gt;, &lt;matplotlib.axis.XTick object at 0x290f636d0&gt;, &lt;matplotlib.axis.XTick object at 0x290f63d30&gt;, &lt;matplotlib.axis.XTick object at 0x290f6a4c0&gt;, &lt;matplotlib.axis.XTick object at 0x290f6ac10&gt;, &lt;matplotlib.axis.XTick object at 0x290f6d3a0&gt;, &lt;matplotlib.axis.XTick object at 0x290f6daf0&gt;], [Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, '')])</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(monthly_var[<span class="st">'month'</span>], monthly_var[<span class="st">'month_avg_windspeed'</span>] <span class="op">+</span> monthly_var[<span class="st">'standard_dev'</span>], color <span class="op">=</span> <span class="st">"grey"</span>, linestyle <span class="op">=</span> <span class="st">'dashed'</span>, label <span class="op">=</span> <span class="st">"Monthly Standard Deviation"</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(monthly_var[<span class="st">'month'</span>], monthly_var[<span class="st">'month_avg_windspeed'</span>] <span class="op">-</span> monthly_var[<span class="st">'standard_dev'</span>], color <span class="op">=</span> <span class="st">"grey"</span>, linestyle <span class="op">=</span> <span class="st">'dashed'</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Month"</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Comparing Average Monthly Wind Speeds in Santa Barbara at 100 Meters with the </span><span class="ch">\n</span><span class="st"> Standard Deviation in 2012"</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-30-7.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Including the standard deviations in this plot show us the variability of wind in that particular month in much greater detail. So in February, you can have days with more extreme winds but you can also have days with practically no wind. Whereas in July you have a lower average wind speed, but it is less variable throughout the month. What if we wanted to look how wind speed varies for the hours in a day for a particular month?</p>
+</section>
+<section id="monthly-averages-for-each-month" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-averages-for-each-month">Monthly Averages for Each Month</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>hourly_var <span class="op">=</span> time_subset(period <span class="op">=</span> <span class="st">'hour'</span>, df <span class="op">=</span> df_100m)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>hourly_var.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year  month  hour  avg_windspeed  hour_avg_windspeed  standard_dev
+0  2012      1     0       3.270203            2.633871      1.946564
+1  2012      1     1       3.270203            2.544516      2.137604
+2  2012      1     2       3.270203            2.265484      1.951186
+3  2012      1     3       3.270203            2.185484      1.588781
+4  2012      1     4       3.270203            1.888710      1.253342</code></pre>
+</div>
+</div>
+<p>Since we know July has less variation than other months lets take a look there first</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>july_var <span class="op">=</span> hourly_var[hourly_var[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">7</span>]</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>plt.bar(july_var[<span class="st">'hour'</span>], july_var[<span class="st">'hour_avg_windspeed'</span>], label <span class="op">=</span> <span class="st">"Hourly Daily Wind Speed"</span>, color <span class="op">=</span> <span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;BarContainer object of 24 artists&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>plt.xticks(july_var[<span class="st">'hour'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x290f63b50&gt;, &lt;matplotlib.axis.XTick object at 0x290f630a0&gt;, &lt;matplotlib.axis.XTick object at 0x290f6a370&gt;, &lt;matplotlib.axis.XTick object at 0x290fe83d0&gt;, &lt;matplotlib.axis.XTick object at 0x290fe8b20&gt;, &lt;matplotlib.axis.XTick object at 0x290fee2b0&gt;, &lt;matplotlib.axis.XTick object at 0x290feea00&gt;, &lt;matplotlib.axis.XTick object at 0x290fe8a90&gt;, &lt;matplotlib.axis.XTick object at 0x290fee520&gt;, &lt;matplotlib.axis.XTick object at 0x290ff54f0&gt;, &lt;matplotlib.axis.XTick object at 0x290ff5c40&gt;, &lt;matplotlib.axis.XTick object at 0x290ffa3d0&gt;, &lt;matplotlib.axis.XTick object at 0x290ffab20&gt;, &lt;matplotlib.axis.XTick object at 0x290fff2b0&gt;, &lt;matplotlib.axis.XTick object at 0x290ffa790&gt;, &lt;matplotlib.axis.XTick object at 0x290ff5520&gt;, &lt;matplotlib.axis.XTick object at 0x290fff040&gt;, &lt;matplotlib.axis.XTick object at 0x290fffdf0&gt;, &lt;matplotlib.axis.XTick object at 0x291a4d580&gt;, &lt;matplotlib.axis.XTick object at 0x291a4dcd0&gt;, &lt;matplotlib.axis.XTick object at 0x291a54460&gt;, &lt;matplotlib.axis.XTick object at 0x291a4d850&gt;, &lt;matplotlib.axis.XTick object at 0x290ff5460&gt;, &lt;matplotlib.axis.XTick object at 0x291a541c0&gt;], [Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, '')])</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Hour of Day"</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Hourly Wind Speeds for July in Santa Barbara at 100 Meters in 2012"</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.legend()</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-34-9.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>march_var <span class="op">=</span> hourly_var[hourly_var[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">3</span>]</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>plt.bar(march_var[<span class="st">'hour'</span>], march_var[<span class="st">'hour_avg_windspeed'</span>], label <span class="op">=</span> <span class="st">"Hourly Daily Wind Speed"</span>, color <span class="op">=</span> <span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;BarContainer object of 24 artists&gt;</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>plt.xticks(march_var[<span class="st">'hour'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x290fe8e20&gt;, &lt;matplotlib.axis.XTick object at 0x290fe8fa0&gt;, &lt;matplotlib.axis.XTick object at 0x290fee970&gt;, &lt;matplotlib.axis.XTick object at 0x291a9f850&gt;, &lt;matplotlib.axis.XTick object at 0x291aa5070&gt;, &lt;matplotlib.axis.XTick object at 0x291aa5760&gt;, &lt;matplotlib.axis.XTick object at 0x291aab040&gt;, &lt;matplotlib.axis.XTick object at 0x291aab640&gt;, &lt;matplotlib.axis.XTick object at 0x291aabd90&gt;, &lt;matplotlib.axis.XTick object at 0x291aab730&gt;, &lt;matplotlib.axis.XTick object at 0x290f63c10&gt;, &lt;matplotlib.axis.XTick object at 0x291aae2e0&gt;, &lt;matplotlib.axis.XTick object at 0x291aaea30&gt;, &lt;matplotlib.axis.XTick object at 0x291ab71c0&gt;, &lt;matplotlib.axis.XTick object at 0x291ab7910&gt;, &lt;matplotlib.axis.XTick object at 0x291aba0a0&gt;, &lt;matplotlib.axis.XTick object at 0x291ab76a0&gt;, &lt;matplotlib.axis.XTick object at 0x291a9f880&gt;, &lt;matplotlib.axis.XTick object at 0x291aba4f0&gt;, &lt;matplotlib.axis.XTick object at 0x291abab50&gt;, &lt;matplotlib.axis.XTick object at 0x291ac62e0&gt;, &lt;matplotlib.axis.XTick object at 0x291ac6a30&gt;, &lt;matplotlib.axis.XTick object at 0x291acb1c0&gt;, &lt;matplotlib.axis.XTick object at 0x291ac67f0&gt;], [Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, '')])</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Hour of Day"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Wind Speed at 100m Height (m/s)"</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Hourly Wind Speeds for March in Santa Barbara at 100 Meters in 2012"</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tech_task_files/figure-html/unnamed-chunk-36-11.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>numpy.version.version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'1.23.1'</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="next-steps-and-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps-and-considerations">Next Steps and Considerations</h2>
+<p>With the above code we are able to look at wind speed variation at a specific point for a given year at different heights. It is also possible to use the resulting data frames to visualize these variations. The below tries to expand the work done above to be able to compare multiple points from a data frame.</p>
+<section id="a-function-to-find-indexes-for-multiple-points-of-interest-indices" class="level3">
+<h3 class="anchored" data-anchor-id="a-function-to-find-indexes-for-multiple-points-of-interest-indices">A Function to Find Indexes for Multiple Points of Interest Indices</h3>
+<p>The function below, <code>multiple_site_index</code>, works with the <code>nearest_site</code> function above to work with multiple coordinate points rather than one location. The function assumes that the data frame’s first column is “lat” and the second column is “lon”.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiple_site_index(POI_df, coord_array):</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    POI_df.columns <span class="op">=</span> [<span class="st">'lat'</span>, <span class="st">'lon'</span>]</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ind <span class="kw">in</span> POI_df.index:</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>        lat <span class="op">=</span> POI_df[<span class="st">'lat'</span>][ind]</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>        lon <span class="op">=</span> POI_df[<span class="st">'lon'</span>][ind]</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>        POI_indx <span class="op">=</span> nearest_site(coord_array, lat, lon)</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>        results.append(POI_indx)</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> raw_h5[<span class="st">'coordinates'</span>][...] <span class="co"># save coordinates data as array, ellipses makes it an array rather than HDF5</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>POI_df_test <span class="op">=</span> coords_df.head()</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>POI_multi <span class="op">=</span> multiple_site_index(POI_df <span class="op">=</span> POI_df_test, coord_array <span class="op">=</span> coords)</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>POI_multi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 1, 2, 3, 4]</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> raw_h5[<span class="st">'coordinates'</span>][...] <span class="co"># save coordinates data as array, ellipses makes it an array rather than HDF5</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>coords_df <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> coords)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>coords_df.columns <span class="op">=</span> [<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="co"># coords_df = coords_df.astype(float)</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co"># find the max and min of the dataset to create bounding limits</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>lat_max <span class="op">=</span> coords_df[<span class="st">'latitude'</span>].<span class="bu">max</span>()</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>lat_min <span class="op">=</span> coords_df[<span class="st">'latitude'</span>].<span class="bu">min</span>()</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>long_max <span class="op">=</span> coords_df[<span class="st">'longitude'</span>].<span class="bu">max</span>()</span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>long_min <span class="op">=</span> coords_df[<span class="st">'longitude'</span>].<span class="bu">min</span>()</span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(long_min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'numpy.float32'&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>* Lockfile written to '~/Documents/Jobs/NREL/NREL_task_2022/renv.lock'.
+* Wrote Python packages to "~/Documents/Jobs/NREL/NREL_task_2022/requirements.txt".</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>* The library is already synchronized with the lockfile.
+* The Python library is already up to date.</code></pre>
+</div>
+</div>
+
+</section>
+</section>
+</section>
+</main>
+<!-- /main column -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>
