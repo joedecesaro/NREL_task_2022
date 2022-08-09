@@ -1,8 +1,6 @@
 ---
 title: "NREL Technical Task 2022"
-format: 
-  html:
-    code-fold: false
+format: html
 editor: visual
 ---
 
@@ -146,7 +144,9 @@ def h5_extractor(raw_h5, variable, POI_indx):
 ```
 
 ```{python}
-windspeed_100 = h5_extractor(raw_h5 = raw_h5, variable = 'windspeed_100m', POI_indx = POI_indx)
+windspeed_100 = h5_extractor(raw_h5 = raw_h5, 
+                             variable = 'windspeed_100m', 
+                             POI_indx = POI_indx)
 ```
 
 ## Make a DataFrame for Wind Speed
@@ -277,34 +277,21 @@ hourly_var = time_subset(period = 'hour', df = df_100m)
 hourly_var.head()
 ```
 
-Since we know July has less variation than other months lets take a look there first
+Since we know July has less variation and March seems to have more lets compare themthan other months lets take a look there first
 
 ```{python}
 july_var = hourly_var[hourly_var['month'] == 7]
-plt.clf()
-plt.bar(july_var['hour'], july_var['hour_avg_windspeed'], label = "Hourly Daily Wind Speed", color = "green")
-plt.xticks(july_var['hour'])
-plt.xlabel("Hour of Day")
-plt.ylabel("Average Wind Speed at 100m Height (m/s)")
-plt.title("Average Hourly Wind Speeds for July in Santa Barbara at 100 Meters in 2012")
-#plt.legend()
-plt.show()
-```
-
-```{python}
 march_var = hourly_var[hourly_var['month'] == 3]
+
 plt.clf()
-plt.bar(march_var['hour'], march_var['hour_avg_windspeed'], label = "Hourly Daily Wind Speed", color = "green")
-plt.xticks(march_var['hour'])
+plt.plot(july_var['hour'], july_var['hour_avg_windspeed'], label = "July Hourly Wind Speed", color = "green")
+plt.xticks(july_var['hour'])
+plt.plot(march_var['hour'], march_var['hour_avg_windspeed'], label = "March Hourly Wind Speed")
 plt.xlabel("Hour of Day")
 plt.ylabel("Average Wind Speed at 100m Height (m/s)")
-plt.title("Average Hourly Wind Speeds for March in Santa Barbara at 100 Meters in 2012")
+plt.title("Average Hourly Wind Speeds for July and March in Santa Barbara at \n 100 Meters in 2012")
+plt.legend()
 plt.show()
-```
-
-```{python}
-import numpy
-numpy.version.version
 ```
 
 ## Next Steps and Considerations
@@ -318,12 +305,12 @@ The function below, `multiple_site_index`, works with the `nearest_site` functio
 ```{python}
 def multiple_site_index(POI_df, coord_array):
     POI_df.columns = ['lat', 'lon']
-    results = []
+    results = pd.DataFrame(dtype = float)
     for ind in POI_df.index:
         lat = POI_df['lat'][ind]
         lon = POI_df['lon'][ind]
         POI_indx = nearest_site(coord_array, lat, lon)
-        results.append(POI_indx)
+        results[ind](POI_indx)
     return results
 
 ```
@@ -333,12 +320,11 @@ coords = raw_h5['coordinates'][...] # save coordinates data as array, ellipses m
 
 POI_df_test = coords_df.head()
 
-POI_multi = multiple_site_index(POI_df = POI_df_test, coord_array = coords)
-POI_multi
+# POI_multi = multiple_site_index(POI_df = POI_df_test, coord_array = coords)
+# POI_multi
 ```
 
 ```{python}
-coords = raw_h5['coordinates'][...] # save coordinates data as array, ellipses makes it an array rather than HDF5
 coords_df = pd.DataFrame(data = coords)
 coords_df.columns = ['latitude', 'longitude']
 # coords_df = coords_df.astype(float)
@@ -349,7 +335,6 @@ lat_max = coords_df['latitude'].max()
 lat_min = coords_df['latitude'].min()
 long_max = coords_df['longitude'].max()
 long_min = coords_df['longitude'].min()
-type(long_min)
 ```
 
 ```{r}
