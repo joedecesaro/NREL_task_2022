@@ -55,7 +55,7 @@ Let's import the data for the year 2012 and for the contiguous US.
 ```{python}
 #| label: Import data
 year = '2012'
-country = "conus" # 
+country = 'conus' # can be 'conus', 'mexico', or 'canada'
 wind_file_path = "/nrel/wtk/conus/wtk_" + country + "_" + year + ".h5"
 raw_h5 = h5pyd.File(wind_file_path, 'r')
 
@@ -125,7 +125,7 @@ The below is a test for the function above for the point of interest (POI). The 
 
 ```{python}
 coords = raw_h5['coordinates'][...] # save coordinates data as array, ellipses makes it an array rather than HDF5
-POI = (34.420830, -119.698189)
+POI = (34.420830, -119.698189) # Santa Barbara
 
 POI_indx = nearest_site(coord_array = coords, 
                         lat_coord = POI[0], 
@@ -250,7 +250,7 @@ plt.plot(monthly_var['month'], monthly_var['avg_windspeed'], color = "darkred", 
 # plt.scatter(monthly_var['month'], monthly_var['month_avg_windspeed'] - monthly_var['standard_dev'], color = "grey", linestyle = 'dashed')
 plt.xlabel("Month")
 plt.ylabel("Average Wind Speed at 100m Height (m/s)")
-plt.title("Comparing Average Monthly Wind Speeds in Santa Barbara at 100 Meters with the Annual Average for 2012")
+plt.title("Comparing Average Monthly Wind Speeds in Santa Barbara at 100 Meters \n with the Annual Average for 2012")
 plt.legend()
 plt.show()
 ```
